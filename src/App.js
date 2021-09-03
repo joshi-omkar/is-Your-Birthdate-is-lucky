@@ -1,11 +1,11 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Footer from "./Footer";
 import "./styles.css";
 
 export default function App() {
   const [date, setDate] = useState("");
-  const [number, setNumber] = useState("");
-  const [isLucky, setIsLucky] = useState();
+  const [number, setNumber] = useState(0);
+  const [output, setOutput] = useState("");
 
   const calculateSum = (date) => {
     date = date.replaceAll("-", "");
@@ -26,52 +26,54 @@ export default function App() {
     let sum = calculateSum(date);
 
     if (sum === 0) {
-      setIsLucky(
+      setOutput(
         <h2 className="output"> {number} is a lucky number!! 🥳 🥳 🥳 </h2>
       );
     } else {
-      setIsLucky(<h2 className="output"> {number} is not that lucky 😕</h2>);
+      setOutput(<h2 className="output"> {number} is not that lucky 😕</h2>);
     }
   };
 
   return (
-    <div className="App">
-      <nav>Is Your Birthdate is Lucky!!</nav>
+    <div>
+      <div className="App">
+        <nav>Is Your Birthdate is Lucky!!</nav>
 
-      <div className="container">
-        <h2>your birthdate</h2>
-        <input
-          required
-          type="date"
-          className="input"
-          onChange={(e) => {
-            var date = e.target.value;
-            setDate(date);
-          }}
-        />
+        <form onSubmit={handleOnClick}>
+          <div className="container">
+            <h2>your birthdate</h2>
+            <input
+              required
+              className="input"
+              type="date"
+              onChange={(event) => {
+                setDate(event.target.value);
+              }}
+            ></input>
 
-        <h2>your lucky number</h2>
-        <input
-          required
-          type="text"
-          className="input"
-          onChange={(e) => {
-            var date = Number(e.target.value);
-            setNumber(date);
-          }}
-        />
+            <h2>your lucky number</h2>
+            <input
+              className="input"
+              type="Number"
+              min="1"
+              step="1"
+              required
+              onChange={(event) => {
+                setNumber(event.target.value);
+              }}
+            ></input>
 
-        <br />
+            <br />
 
-        <button className="btn" onClick={handleOnClick}>
-          Check
-        </button>
+            <button className="btn" type="submit">
+              Check
+            </button>
 
-        <div>{isLucky}</div>
+            <div>{output}</div>
+          </div>
+        </form>
       </div>
-      <div>
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 }

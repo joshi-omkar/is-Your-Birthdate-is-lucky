@@ -2,7 +2,18 @@
 .App {
   font-family: "Artifika", serif;
   text-align: center;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   background-color: #88b04b;
 }
@@ -13,6 +24,7 @@ nav {
   font-size: 2rem;
   font-style: normal;
   font-weight: 700;
+  flex-shrink: 1;
 }
 
 .container {
@@ -21,6 +33,7 @@ nav {
   max-width: 100%;
   align-items: center;
   justify-content: center;
+  flex-grow: 1;
 }
 
 h2 {
@@ -67,14 +80,15 @@ h2 {
 }
 
 footer {
-  position: absolute;
+  display: flex;
+  position: fixed;
+  flex-direction: column;
   bottom: 0;
   left: 0;
   right: 0;
   background-color: #f2c94c;
   text-align: center;
   padding: 2px;
-  width: 100%;
   padding-bottom: 1%;
 }
 

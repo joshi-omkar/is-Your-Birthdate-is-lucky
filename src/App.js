@@ -39,6 +39,8 @@ export default function App() {
       <div className="App">
         <nav>Is Your Birthdate is Lucky!!</nav>
 
+        <h3 style={{ paddingBottom: 5 }}> We don't store your DOB!! </h3>
+
         <form onSubmit={handleOnClick}>
           <div className="container">
             <h2>your birthdate</h2>

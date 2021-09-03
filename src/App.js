@@ -41,6 +41,7 @@ export default function App() {
       <div className="container">
         <h2>your birthdate</h2>
         <input
+          required
           type="date"
           className="input"
           onChange={(e) => {
@@ -51,6 +52,7 @@ export default function App() {
 
         <h2>your lucky number</h2>
         <input
+          required
           type="text"
           className="input"
           onChange={(e) => {

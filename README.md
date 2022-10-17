@@ -1,2 +1,4 @@
 # is-Your-Birthdate-is-lucky
-Created with CodeSandbox
+Check your birthdate is LUCK or NOT. 
+
+Made in ReactJS
